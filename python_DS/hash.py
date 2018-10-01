@@ -1,15 +1,15 @@
-# Python 3 code to demonstrate the  
-# working of MD5 (string - hexadecimal) 
-  
-import hashlib 
-  
-# initializing string 
-str = "Hacktoberfest"
-  
-# encoding Hacktoberfest using encode() 
-# then sending to md5() 
-result = hashlib.md5(str.encode()) 
-  
-# printing the equivalent hexadecimal value. 
-print("The hexadecimal equivalent of hash is : ", end ="") 
-print(result.hexdigest()) 
+#example of hashfunction
+class Person:
+    def __init__(self, age, name):
+        self.age = age
+        self.name = name
+
+    def __eq__(self, other):
+        return self.age == other.age and self.name == other.name
+
+    def __hash__(self):
+        print('The hash is:')
+        return hash((self.age, self.name))
+
+person = Person(23, 'Adam')
+print(hash(person))
